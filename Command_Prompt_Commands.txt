@@ -15,8 +15,8 @@ git commit -m (file name)  =====> #To commit file to the repository
 
 git log  =====> #To see commits
 
-git remote -v
-git remote add <remote or name> <URL>
+git remote -v =====> #To view the remote repository information
+git remote add <remote or name> <URL> =====> #To add a remote repository
 
 git remote rename <old name> <new NAME>
 git remote remove <name>
@@ -29,8 +29,19 @@ git fetch
 git fetch <remote> <branch>
 git fetch origin <branch>
 
+git pull <remote> <branch> =====> #To pull from a remote repository
+
+// branches
+git branch <branch_name> =====> #To create a new branch
+git branch =====> #To report branches that currently exist
+
 git merge
-git switch <name>
+git switch <name> =====> #To switch to an other branch
 git checkout <remote/branch>  =====> #To checkout other branches
 
-git pull <remote> <branch> 
+git branch => #to view a branch(s)
+git branch <name of branch> #to create a branch with a name
+git switch <to branch name> => #to SWITCH a branch with a name
+git branch -m <new branch name> => #to rename a branch
+git branch -d <branch to delete (name) > => #to delete a branch
+git merge <name of branch that is being merge into the branch you are in>  => #to merge branch
