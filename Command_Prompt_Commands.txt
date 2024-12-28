@@ -1,0 +1,36 @@
+COMMAND PROMPT COMMANDS
+---------------------------
+dir =====> #To see a directory
+cd <filename> =====> #To go into a directory
+cd .. =====> #To go back one directory
+mkdir <folder name> =====> #To create a folder
+echo. > <filename> =====> #To create a file
+
+GIT COMMANDS
+---------------------------
+git status  =====> #To check status
+git init  =====> #To start git locally
+git add (file name)   =====> #To file in staging area
+git commit -m (file name)  =====> #To commit file to the repository
+
+git log  =====> #To see commits
+
+git remote -v
+git remote add <remote or name> <URL>
+
+git remote rename <old name> <new NAME>
+git remote remove <name>
+
+git remote add origin https://github.com/thegrindnet/LEARN_GIT.git
+git branch -M main
+git push -u origin main
+
+git fetch
+git fetch <remote> <branch>
+git fetch origin <branch>
+
+git merge
+git switch <name>
+git checkout <remote/branch>  =====> #To checkout other branches
+
+git pull <remote> <branch> 
