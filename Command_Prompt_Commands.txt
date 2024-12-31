@@ -18,30 +18,41 @@ git log  =====> #To see commits
 git remote -v =====> #To view the remote repository information
 git remote add <remote or name> <URL> =====> #To add a remote repository
 
-git remote rename <old name> <new NAME>
-git remote remove <name>
+git remote rename <old name> <new NAME>  =====> #
+git remote remove <name>  =====> #
 
 git remote add origin https://github.com/thegrindnet/LEARN_GIT.git
 git branch -M main
 git push -u origin main
 
-git fetch
-git fetch <remote> <branch>
-git fetch origin <branch>
+git fetch  =====> #
+git fetch <remote> <branch>  =====> #
+git fetch origin <branch>  =====> #
 
 git pull <remote> <branch> =====> #To pull from a remote repository
 
-// branches
+// BRANCHES
 git branch <branch_name> =====> #To create a new branch
 git branch =====> #To report branches that currently exist
 
-git merge
+git merge  =====> #
 git switch <name> =====> #To switch to an other branch
 git checkout <remote/branch>  =====> #To checkout other branches
 
-git branch => #to view a branch(s)
-git branch <name of branch> #to create a branch with a name
-git switch <to branch name> => #to SWITCH a branch with a name
-git branch -m <new branch name> => #to rename a branch
-git branch -d <branch to delete (name) > => #to delete a branch
-git merge <name of branch that is being merge into the branch you are in>  => #to merge branch
+git branch =====> #to view a branch(s)
+git branch <name of branch> =====> #to create a branch with a name
+git switch <to branch name> =====> #to SWITCH a branch with a name
+git branch -m <new branch name> =====> #to rename a branch
+git branch -d <branch to delete (name)> =====> #to delete a branch
+git merge <name of branch that is being merge into the branch you are in>  =====> #to merge branch
+
+//Day 4
+git log --oneline  ====> #To see first 7 of hash of commits and commit message
+git checkout <commit hash> ====> #To see a commit and moves head 
+
+git restore <file name (ex. myfile.txt) git > ====> #To restore to a file
+git restore --source HEAD~N <file name>  ====> #To restore a number back
+git rm --cached <file name> ====> #To remove a file from the staging area (unstaging)
+git reset <commit hash>   ====> #To remove commits in front of the specific has called, files unchanged
+git reset <commit hash> -- hard  ====> #To remove commits and the changes in the files
+git revert  ====> #To create a NEW commit that matches the historical state of a previous commit
