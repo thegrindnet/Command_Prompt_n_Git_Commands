@@ -56,3 +56,14 @@ git rm --cached <file name> ====> #To remove a file from the staging area (unsta
 git reset <commit hash>   ====> #To remove commits in front of the specific has called, files unchanged
 git reset <commit hash> -- hard  ====> #To remove commits and the changes in the files
 git revert  ====> #To create a NEW commit that matches the historical state of a previous commit
+
+git stash  ====> #To stash away work (into a "box")
+git stash pop  ====> #To bring back work that was stashed without applying them.
+git stash apply
+git remote  ====> #To list the remote connections I have.
+git remote -v ====> #To list the remote connections along with their URL..
+git remote add <name> <url>  ====> #To add a remote repository.
+git remote rm <name>  ====> #To remove a remote repository.
+.gitignore  ====> #Add file (Ex. myPasswords.txt) or Add directory (Ex. directory_name/)
+                             or Add all files with a specific extension by adding an asterisk (Ex. *.sql)
+git rm --cached FILENAME  ====> #To ignore a file that is already checked in.
