@@ -1,10 +1,15 @@
-COMMAND PROMPT COMMANDS - Last Updated 12-27-2024
+COMMAND PROMPT COMMANDS / TERMINAL - Last Updated 7-15-2025
 ---------------------------
 dir =====> #To see a directory
 cd <filename> =====> #To go into a directory
 cd .. =====> #To go back one directory
 mkdir <folder name> =====> #To create a folder
 echo. > <filename> =====> #To create a file
+touch <filename> =====> #To create a file
+rmdir <directory_name> =====> This command is specifically designed to remove empty directories.
+rm -r <directory_name> =====> To delete the directory and its contents.
+code <directory>/<filename> (then hit 'ctrl' + s to save) =====> This opens and creates the directory and file at the same time.
+
 
 GIT COMMANDS
 ---------------------------
@@ -63,7 +68,7 @@ git stash apply
 git remote  ====> #To list the remote connections I have.
 git remote -v ====> #To list the remote connections along with their URL..
 git remote add <name> <url>  ====> #To add a remote repository.
-git remote rm <name>  ====> #To remove a remote repository.
+git remote rm <name>  ====> #To remove a remote repository. ex. git remote rm origin
 .gitignore  ====> #Add file (Ex. myPasswords.txt) or Add directory (Ex. directory_name/)
                              or Add all files with a specific extension by adding an asterisk (Ex. *.sql)
 git rm --cached FILENAME  ====> #To ignore a file that is already checked in.
