@@ -8,6 +8,7 @@ echo. > <filename> =====> #To create a file
 touch <filename> =====> #To create a file
 rmdir <directory_name> =====> This command is specifically designed to remove empty directories.
 rm -r <directory_name> =====> To delete the directory and its contents.
+rm <filename.txt> =====> To delete the file (make sure you are in that directory in the terminal).
 code <directory>/<filename> (then hit 'ctrl' + s to save) =====> This opens and creates the directory and file at the same time.
 
 
