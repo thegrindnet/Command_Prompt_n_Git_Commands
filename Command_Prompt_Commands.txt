@@ -1,85 +1,665 @@
-PART 1 — Windows Command Prompt
-PART 2 — Git Bash / macOS / Linux Terminal
-PART 3 — Visual Studio Code Commands
-PART 4 — Git Basics
-PART 5 — Git Branches
-PART 6 — Undoing Changes
-PART 7 — Remote Repositories
-PART 8 — Common Git Workflows
+COMMAND LINE AND GIT QUICK REFERENCE GUIDE
+Last Updated: July 14, 2026
 
-COMMAND PROMPT COMMANDS / TERMINAL - Last Updated 7-14-2026
----------------------------
-dir =====> #To see a directory
-cd <filename> =====> #To go into a directory
-cd .. =====> #To go back one directory
-mkdir <folder name> =====> #To create a folder
-echo. > <filename> =====> #To create a file
-touch <filename> =====> #To create a file
-rmdir <directory_name> =====> This command is specifically designed to remove empty directories.
-rm -r <directory_name> =====> To delete the directory and its contents.
-rm <filename.txt> =====> To delete the file (make sure you are in that directory in the terminal).
-code <directory>/<filename> (then hit 'ctrl' + s to save) =====> This opens and creates the directory and file at the same time.
+============================================================
+TABLE OF CONTENTS
+============================================================
+1. Windows Command Prompt Commands
+2. Git Bash / macOS / Linux Terminal Commands
+3. Visual Studio Code Commands
+4. Git Basics
+5. Connecting a Project to GitHub
+6. Daily Git Workflow
+7. Git Branches
+8. Viewing Git History
+9. Undoing Changes
+10. Git Stash
+11. Remote Repositories
+12. .gitignore
+13. Common Workflows
+14. Safety Warnings
+15. Most Common Commands Cheat Sheet
 
 
-GIT COMMANDS
----------------------------
-git status  =====> #To check status
-git init  =====> #To start git locally
-git add (file name)   =====> #To file in staging area
-git commit -m (file name)  =====> #To commit file to the repository
+============================================================
+1. WINDOWS COMMAND PROMPT COMMANDS
+============================================================
 
-git log  =====> #To see commits
+dir
+Purpose: Displays the files and folders in the current directory.
 
-git remote -v =====> #To view the remote repository information
+cd <folder-name>
+Purpose: Moves into a folder.
+Example:
+cd Documents
 
-git remote rename <old name> <new NAME>  =====> #
-git remote remove <name>  =====> #
+cd ..
+Purpose: Moves back one directory.
 
-git remote add <remote or name> <URL> =====> #To add a remote repository, see the example below
-	git remote add origin https://github.com/thegrindnet/LEARN_GIT.git
+mkdir <folder-name>
+Purpose: Creates a new folder.
+Example:
+mkdir my-project
+
+echo. > <filename>
+Purpose: Creates an empty file in Windows Command Prompt.
+Example:
+echo. > index.html
+
+rmdir <folder-name>
+Purpose: Deletes an empty folder.
+Example:
+rmdir old-folder
+
+rmdir /s <folder-name>
+Purpose: Deletes a folder and everything inside it.
+
+WARNING: This permanently deletes the folder and its contents.
+
+
+============================================================
+2. GIT BASH / macOS / LINUX TERMINAL COMMANDS
+============================================================
+
+ls
+Purpose: Displays the files and folders in the current directory.
+
+pwd
+Purpose: Shows the full path of the current directory.
+
+cd <folder-name>
+Purpose: Moves into a folder.
+Example:
+cd my-project
+
+cd ..
+Purpose: Moves back one directory.
+
+mkdir <folder-name>
+Purpose: Creates a new folder.
+Example:
+mkdir images
+
+touch <filename>
+Purpose: Creates an empty file.
+Example:
+touch index.html
+
+rm <filename>
+Purpose: Deletes a file.
+Example:
+rm notes.txt
+
+rm -r <folder-name>
+Purpose: Deletes a folder and everything inside it.
+
+WARNING: This can permanently delete files and folders.
+
+
+============================================================
+3. VISUAL STUDIO CODE COMMANDS
+============================================================
+
+code .
+Purpose: Opens the current folder in Visual Studio Code.
+
+code <filename>
+Purpose: Opens a file in Visual Studio Code.
+Example:
+code index.html
+
+code <folder-name>
+Purpose: Opens a folder in Visual Studio Code.
+Example:
+code my-project
+
+code <folder>/<filename>
+Purpose: Opens a file inside a specific folder.
+Example:
+code src/app.js
+
+NOTE:
+Opening a file does not always create it immediately. Save the file with
+Ctrl + S after entering content.
+
+
+============================================================
+4. GIT BASICS
+============================================================
+
+git init
+Purpose: Starts a new local Git repository in the current folder.
+
+git status
+Purpose: Shows modified, staged, and untracked files.
+
+git add <filename>
+Purpose: Adds one file to the staging area.
+Example:
+git add index.html
+
+git add .
+Purpose: Adds all changed and untracked files to the staging area.
+
+git commit -m "commit message"
+Purpose: Saves the staged changes as a commit.
+Example:
+git commit -m "Create homepage layout"
+
+git log
+Purpose: Shows the full commit history.
+
+git log --oneline
+Purpose: Shows a shorter commit history with abbreviated commit hashes.
+
+git diff
+Purpose: Shows changes that have not been staged.
+
+git diff --staged
+Purpose: Shows changes that are currently staged.
+
+
+============================================================
+5. CONNECTING A PROJECT TO GITHUB
+============================================================
+
+git remote add origin <repository-url>
+Purpose: Connects the local repository to a GitHub repository.
+Example:
+git remote add origin https://github.com/username/project-name.git
+
 git branch -M main
+Purpose: Renames the current branch to main.
+
 git push -u origin main
-git pull --rebase origin main =====>Pull and rebase remote changes into your local branch, then "git push origin main"
+Purpose: Pushes the main branch to GitHub and sets origin/main as the
+default upstream branch.
 
-git fetch  =====> #
-git fetch <remote> <branch>  =====> #
-git fetch origin <branch>  =====> #
+After the upstream is set, future pushes can usually use:
 
-git pull <remote> <branch> =====> #To pull from a remote repository
+git push
 
-// BRANCHES
-git branch <branch_name> =====> #To create a new branch
-git branch =====> #To report branches that currently exist
 
-git merge  =====> #
-git switch <name> =====> #To switch to an other branch
-git checkout <remote/branch>  =====> #To checkout other branches
+============================================================
+6. DAILY GIT WORKFLOW
+============================================================
 
-git branch =====> #to view a branch(s)
-git branch <name of branch> =====> #to create a branch with a name
-git switch <to branch name> =====> #to SWITCH a branch with a name
-git branch -m <new branch name> =====> #to rename a branch
-git branch -d <branch to delete (name)> =====> #to delete a branch
-git merge <name of branch that is being merge into the branch you are in>  =====> #to merge branch
+Step 1:
+git status
 
-//Day 4
-git log --oneline  ====> #To see first 7 of hash of commits and commit message
-git checkout <commit hash> ====> #To see a commit and moves head 
+Purpose: Review the files that have changed.
 
-git restore <file name (ex. myfile.txt) git > ====> #To restore to a file
-git restore --source HEAD~N <file name>  ====> #To restore a number back
-git rm --cached <file name> ====> #To remove a file from the staging area (unstaging)
-git reset <commit hash>   ====> #To remove commits in front of the specific has called, files unchanged
-git reset <commit hash> -- hard  ====> #To remove commits and the changes in the files
-git revert  ====> #To create a NEW commit that matches the historical state of a previous commit
+Step 2:
+git add .
 
-git stash  ====> #To stash away work (into a "box")
-git stash pop  ====> #To bring back work that was stashed without applying them.
+Purpose: Stage all changes.
+
+Step 3:
+git commit -m "Describe the changes"
+
+Purpose: Save the staged changes in Git.
+
+Step 4:
+git push
+
+Purpose: Upload the commits to the connected remote repository.
+
+
+Example:
+
+git status
+git add .
+git commit -m "Fix mobile navigation"
+git push
+
+
+============================================================
+7. GIT BRANCHES
+============================================================
+
+git branch
+Purpose: Displays all local branches.
+The branch marked with an asterisk is the current branch.
+
+git branch <branch-name>
+Purpose: Creates a new branch without switching to it.
+Example:
+git branch feature-login
+
+git switch <branch-name>
+Purpose: Switches to an existing branch.
+Example:
+git switch feature-login
+
+git switch -c <new-branch-name>
+Purpose: Creates a new branch and immediately switches to it.
+Example:
+git switch -c feature-navbar
+
+git branch -m <new-name>
+Purpose: Renames the current branch.
+Example:
+git branch -m main
+
+git merge <branch-name>
+Purpose: Merges the named branch into the branch you are currently on.
+Example:
+git merge feature-navbar
+
+IMPORTANT:
+Switch to the branch that should receive the changes before running merge.
+
+git branch -d <branch-name>
+Purpose: Safely deletes a merged local branch.
+Example:
+git branch -d feature-navbar
+
+git branch -D <branch-name>
+Purpose: Forces Git to delete a local branch, even if it has not been merged.
+
+WARNING:
+Using -D may permanently remove unmerged work.
+
+git checkout <branch-name>
+Purpose: Older command used to switch branches.
+
+git checkout -b <new-branch-name>
+Purpose: Older command used to create and switch to a new branch.
+
+
+============================================================
+8. VIEWING GIT HISTORY
+============================================================
+
+git log
+Purpose: Shows detailed commit history.
+
+git log --oneline
+Purpose: Shows abbreviated commit hashes and commit messages.
+
+git show <commit-hash>
+Purpose: Displays the details and changes from a specific commit.
+Example:
+git show a1b2c3d
+
+git checkout <commit-hash>
+Purpose: Temporarily views the project at an older commit.
+
+NOTE:
+This places Git in a detached HEAD state. To return to your branch, use:
+
+git switch main
+
+
+============================================================
+9. UNDOING CHANGES
+============================================================
+
+git restore <filename>
+Purpose: Discards unstaged changes in a file.
+Example:
+git restore index.html
+
+WARNING:
+Unsaved changes in that file will be lost.
+
+git restore --staged <filename>
+Purpose: Removes a file from the staging area without deleting its changes.
+Example:
+git restore --staged index.html
+
+git restore --source HEAD~1 <filename>
+Purpose: Restores a file from the previous commit.
+
+git restore --source HEAD~N <filename>
+Purpose: Restores a file from a specific number of commits back.
+Example:
+git restore --source HEAD~2 app.js
+
+git reset --soft HEAD~1
+Purpose: Removes the latest commit but keeps the changes staged.
+
+git reset HEAD~1
+Purpose: Removes the latest commit and keeps the changes in the working
+directory, usually unstaged.
+
+git reset --hard HEAD~1
+Purpose: Removes the latest commit and permanently deletes its file changes.
+
+DANGER:
+This command can permanently erase work.
+
+git reset <commit-hash>
+Purpose: Moves the current branch back to the specified commit while usually
+keeping the file changes in the working directory.
+
+git reset --hard <commit-hash>
+Purpose: Moves the branch back to a commit and deletes all later file changes.
+
+DANGER:
+Commits and uncommitted changes may be permanently lost.
+
+git revert <commit-hash>
+Purpose: Creates a new commit that reverses the changes made by an older commit.
+
+RECOMMENDATION:
+Use git revert when undoing a commit that has already been pushed to GitHub.
+
+
+============================================================
+10. GIT STASH
+============================================================
+
+git stash
+Purpose: Temporarily stores uncommitted tracked changes.
+
+git stash -u
+Purpose: Stashes tracked changes and untracked files.
+
+git stash list
+Purpose: Displays all saved stashes.
+
 git stash apply
-git remote  ====> #To list the remote connections I have.
-git remote -v ====> #To list the remote connections along with their URL..
-git remote add <name> <url>  ====> #To add a remote repository.
-git remote rm <name>  ====> #To remove a remote repository. ex. git remote rm origin
-.gitignore  ====> #Add file (Ex. myPasswords.txt) or Add directory (Ex. directory_name/)
-                             or Add all files with a specific extension by adding an asterisk (Ex. *.sql)
-git rm --cached FILENAME  ====> #To ignore a file that is already checked in.
+Purpose: Applies the most recent stash but keeps it in the stash list.
+
+git stash pop
+Purpose: Applies the most recent stash and usually removes it from the stash list.
+
+git stash drop
+Purpose: Deletes the most recent stash.
+
+git stash clear
+Purpose: Deletes all saved stashes.
+
+WARNING:
+Clearing stashes cannot easily be undone.
+
+
+============================================================
+11. REMOTE REPOSITORIES
+============================================================
+
+git remote
+Purpose: Lists the names of connected remote repositories.
+
+git remote -v
+Purpose: Lists remote names and their URLs.
+
+git remote add <name> <url>
+Purpose: Adds a remote repository.
+Example:
+git remote add origin https://github.com/username/project.git
+
+git remote rename <old-name> <new-name>
+Purpose: Renames a remote.
+Example:
+git remote rename origin upstream
+
+git remote remove <name>
+Purpose: Removes a remote connection.
+Example:
+git remote remove origin
+
+git remote rm <name>
+Purpose: Another way to remove a remote.
+
+git fetch
+Purpose: Downloads remote information without merging it into the current branch.
+
+git fetch <remote> <branch>
+Purpose: Downloads information from a specific remote branch.
+Example:
+git fetch origin main
+
+git pull <remote> <branch>
+Purpose: Downloads and merges changes from a remote branch.
+Example:
+git pull origin main
+
+git pull --rebase origin main
+Purpose: Downloads remote changes and places your local commits on top of them.
+
+After resolving any conflicts, use:
+
+git push origin main
+
+git push
+Purpose: Uploads local commits to the configured upstream branch.
+
+git push origin <branch-name>
+Purpose: Pushes a specific branch to the remote repository.
+
+git push -u origin <branch-name>
+Purpose: Pushes a branch and sets its upstream tracking branch.
+
+
+============================================================
+12. .GITIGNORE
+============================================================
+
+.gitignore
+Purpose: A file that tells Git which files and folders should not be tracked.
+
+Examples:
+
+Ignore one file:
+myPasswords.txt
+
+Ignore one folder:
+node_modules/
+
+Ignore all files with a specific extension:
+*.sql
+
+Common entries for a Node.js project:
+
+node_modules/
+.env
+dist/
+coverage/
+.DS_Store
+
+IMPORTANT:
+Adding a tracked file to .gitignore does not automatically stop Git from
+tracking it.
+
+To stop tracking a file while keeping it on your computer:
+
+git rm --cached <filename>
+
+Example:
+git rm --cached .env
+
+To stop tracking a folder while keeping it on your computer:
+
+git rm -r --cached <folder-name>
+
+Example:
+git rm -r --cached node_modules
+
+Then commit the change:
+
+git add .gitignore
+git commit -m "Update ignored files"
+
+
+============================================================
+13. COMMON WORKFLOWS
+============================================================
+
+A. CREATE AND PUBLISH A NEW PROJECT
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
+
+
+B. SAVE DAILY CHANGES
+
+git status
+git add .
+git commit -m "Describe the changes"
+git push
+
+
+C. CREATE AND MERGE A FEATURE BRANCH
+
+git switch main
+git pull origin main
+git switch -c feature-navbar
+
+# Make your changes
+
+git add .
+git commit -m "Create navigation bar"
+git switch main
+git pull origin main
+git merge feature-navbar
+git push
+git branch -d feature-navbar
+
+
+D. UNSTAGE A FILE
+
+git restore --staged <filename>
+
+
+E. DISCARD UNSTAGED CHANGES IN A FILE
+
+git restore <filename>
+
+
+F. FIX THE LATEST COMMIT MESSAGE
+
+git commit --amend -m "Corrected commit message"
+
+WARNING:
+Avoid amending commits that have already been pushed and shared with others.
+
+
+G. UPDATE A LOCAL PROJECT BEFORE PUSHING
+
+git pull --rebase origin main
+git push origin main
+
+
+H. TEMPORARILY SAVE UNFINISHED WORK
+
+git stash
+git switch main
+
+# Complete other work
+
+git switch <original-branch>
+git stash pop
+
+
+============================================================
+14. SAFETY WARNINGS
+============================================================
+
+SAFE COMMANDS
+These commands normally only display information:
+
+git status
+git log
+git log --oneline
+git diff
+git branch
+git remote -v
+
+
+USE WITH CAUTION
+These commands change files, branches, or Git history:
+
+git restore <filename>
+git branch -d <branch-name>
+git reset HEAD~1
+git stash pop
+git rm --cached <filename>
+
+
+DANGER
+These commands can permanently delete work:
+
+rm -r <folder-name>
+rmdir /s <folder-name>
+git reset --hard <commit-hash>
+git branch -D <branch-name>
+git stash clear
+
+
+Before using a dangerous command:
+
+1. Run git status.
+2. Commit important work.
+3. Create a backup branch if necessary.
+4. Verify the file, folder, branch, or commit hash.
+5. Read the command one more time before pressing Enter.
+
+
+============================================================
+15. MOST COMMON COMMANDS CHEAT SHEET
+============================================================
+
+View current Git status:
+git status
+
+Stage one file:
+git add <filename>
+
+Stage all changes:
+git add .
+
+Create a commit:
+git commit -m "message"
+
+Upload commits:
+git push
+
+Download and merge remote changes:
+git pull origin main
+
+View commit history:
+git log --oneline
+
+View branches:
+git branch
+
+Create and switch to a branch:
+git switch -c <branch-name>
+
+Switch branches:
+git switch <branch-name>
+
+Merge a branch:
+git merge <branch-name>
+
+Delete a merged branch:
+git branch -d <branch-name>
+
+Unstage a file:
+git restore --staged <filename>
+
+Discard unstaged file changes:
+git restore <filename>
+
+Temporarily save unfinished changes:
+git stash
+
+Restore stashed changes:
+git stash pop
+
+View remote repository URLs:
+git remote -v
+
+Open the current folder in VS Code:
+code .
+
+
+============================================================
+END OF GUIDE
+============================================================
