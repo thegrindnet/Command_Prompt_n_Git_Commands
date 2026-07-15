@@ -1,4 +1,13 @@
-COMMAND PROMPT COMMANDS / TERMINAL - Last Updated 7-15-2025
+PART 1 — Windows Command Prompt
+PART 2 — Git Bash / macOS / Linux Terminal
+PART 3 — Visual Studio Code Commands
+PART 4 — Git Basics
+PART 5 — Git Branches
+PART 6 — Undoing Changes
+PART 7 — Remote Repositories
+PART 8 — Common Git Workflows
+
+COMMAND PROMPT COMMANDS / TERMINAL - Last Updated 7-14-2026
 ---------------------------
 dir =====> #To see a directory
 cd <filename> =====> #To go into a directory
@@ -22,14 +31,15 @@ git commit -m (file name)  =====> #To commit file to the repository
 git log  =====> #To see commits
 
 git remote -v =====> #To view the remote repository information
-git remote add <remote or name> <URL> =====> #To add a remote repository
 
 git remote rename <old name> <new NAME>  =====> #
 git remote remove <name>  =====> #
 
-git remote add origin https://github.com/thegrindnet/LEARN_GIT.git
+git remote add <remote or name> <URL> =====> #To add a remote repository, see the example below
+	git remote add origin https://github.com/thegrindnet/LEARN_GIT.git
 git branch -M main
 git push -u origin main
+git pull --rebase origin main =====>Pull and rebase remote changes into your local branch, then "git push origin main"
 
 git fetch  =====> #
 git fetch <remote> <branch>  =====> #
